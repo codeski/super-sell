@@ -1,0 +1,14 @@
+<h1>Edit Product</h1>
+
+<%= form_for(@product) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.label :brand %>
+  <%= f.collection_select :brand_id, Brand.order(:name), :id, :name, include_blank: true %>
+  <%= f.label :department %>
+  <%= f.collection_select :department_id, Department.order(:name), :id, :name, include_blank: true %>
+  
+  <%= f.submit %>
+<% end %>
